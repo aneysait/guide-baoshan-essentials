@@ -23,4 +23,3 @@ gitignored) and rewrites the `<svg>` inside `index.html` in place.
 
 ---
 Written by Anicet Barrios, Head Student Coordinator UTSEUS.
-The full Baoshan guide, still in progress, lives at [aneysait.github.io/guide-baoshan](https://aneysait.github.io/guide-baoshan/).
