@@ -1,0 +1,5 @@
+# Overpass caches and intermediate output of build_map.py.
+# The finished map lives inline in index.html; these are only build scratch.
+geo.json
+bld.json
+map_body.svg
