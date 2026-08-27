@@ -313,5 +313,48 @@
   <div class="pied"><a href="#sommaire">UTSEUS · Baoshan Guide</a><span class="num">04</span></div>
 </section>
 
+
+<!-- ===================== CH 3 : MAP ===================== -->
+<section class="page lisere" id="map-page" style="padding:0; display:flex; flex-direction:column; overflow:hidden;">
+  <div style="padding:18mm 17mm 5mm 17mm;">
+    <div class="vertical">Map</div>
+    <div class="sur-titre">Chapter III</div>
+    <h1 class="chapitre">Area<br><span class="rouge">map</span></h1>
+    <p class="chapo" style="margin-bottom:0;">Interactive map of the SIM card and Bank branches around the Baoshan campus.</p>
+  </div>
+  
+  <div id="map" style="flex:1; width:100%; min-height:400px; background:#e5e3df; z-index:1;"></div>
+  
+  <div style="padding:4mm 17mm 10mm 17mm; background:var(--papier); z-index:2;">
+    <div class="pied"><a href="#sommaire">UTSEUS · Baoshan Guide</a><span class="num">05</span></div>
+  </div>
+</section>
+
+<!-- Leaflet JS & CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  var map = L.map('map', { scrollWheelZoom: false }).setView([31.316, 121.382], 15);
+  L.tileLayer('http://webrd01.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}', {
+    maxZoom: 18,
+    attribution: '&copy; Amap (Gaode)'
+  }).addTo(map);
+
+  var locations = [
+    { name: "China Unicom (155)", lat: 31.3148, lng: 121.3835 },
+    { name: "Bank of China (165)", lat: 31.3148, lng: 121.3833 },
+    { name: "China Mobile (189)", lat: 31.3148, lng: 121.3828 },
+    { name: "China Telecom (329)", lat: 31.3149, lng: 121.3807 },
+    { name: "ICBC (458)", lat: 31.3149, lng: 121.3780 },
+    { name: "SHU West Gate", lat: 31.3160, lng: 121.3845 },
+    { name: "CCB (809 Jinqiu Rd)", lat: 31.3200, lng: 121.3820 },
+    { name: "ABC (716 Jinqiu Rd)", lat: 31.3200, lng: 121.3840 }
+  ];
+
+  locations.forEach(function(loc) {
+    L.marker([loc.lat, loc.lng]).addTo(map).bindPopup("<b>" + loc.name + "</b>");
+  });
+</script>
+
 </body>
 </html>
